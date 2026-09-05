@@ -1,0 +1,12 @@
+﻿1. corregir un error con la transferencia de odometría
+2. corregir el error de tubería rota rr al deshabilitar tcp
+
+right = -0.09
+left = -1.09
+
+16.03.16
+1. corregir un error con la transferencia de odometría
+2. Corrija el error de tubería rota rr al deshabilitar tcp1. reelaborar la clase para practicar los siguientes puntos; el tercer punto y los siguientes no funcionan correctamente;
+2. Cree un controlador en la clase de accionamiento para un movimiento suave del robot.
+3. a veces los datos del obstáculo se eliminan parcialmente cuando el robot se mueve
+4. en lugar de los puntos, se debe enviar una matriz con coordenadas a la clase SQ

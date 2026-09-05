@@ -1,0 +1,33 @@
+﻿	static simxUChar* xxx=0;
+		static String^ GetStringSignal(int ClientID, String^ signalName)
+		{
+			//delete[] xxx; 
+			if (xxx == 0) xxx = (simxUChar*)Marshal::AllocHGlobal(100000).ToPointer();
+	
+			simxChar* z = (simxChar*)Helper::NativeFromString(signalName).ToPointer(); // C++ строка из C# строки
+			
+	int len=0;
+
+	//simxUChar buffer[200000];
+	//simxUChar* zzz = buffer;
+	simxUChar* zzz = xxx;
+
+				
+	simxInt res = simxGetAndClearStringSignal(ClientID, z, &zzz, &len, simx_opmode_oneshot);// simx_opmode_streaming);
+	//len = 2;
+	//zzz[0] = 'a';
+	//zzz[2] = 'b';
+	
+		/// char G = buffer[1]; //проверка
+	
+			
+			if (len <= 0) return "";
+
+			zzz[len] = '\0';
+			IntPtr pt((void*)zzz);
+			String^ str = Helper::StringFromNative(pt);
+			
+			//	delete[] buffer;
+		//	delete[] xxx; xxx = 0;
+			return str;
+		}
